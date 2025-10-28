@@ -1,0 +1,6 @@
+@SoacialMediaApp.api_HostAddress = http://localhost:5105
+
+GET {{SoacialMediaApp.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

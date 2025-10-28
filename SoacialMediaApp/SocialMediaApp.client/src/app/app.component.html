@@ -1,0 +1,19 @@
+<app-nav/>
+<h1>{{ title }}</h1>
+
+<ul>
+  @for (user of users; track user.id) {
+    <li>
+      {{ user.id }} - {{ user.userName }}
+    </li>
+  }
+  <!-- Image Icon -->
+
+</ul>
+<i class="fa-solid fa-image"></i>
+
+<!-- Like Icon -->
+<i class="fa-solid fa-heart"></i>
+
+<!-- Comment Icon -->
+<i class="fa-solid fa-comment"></i>
