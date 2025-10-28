@@ -3,12 +3,12 @@ import {FormsModule} from "@angular/forms";
 import {AccountService} from "../_services/account.service";
 import {NgIf} from "@angular/common";
 
+
 @Component({
   selector: 'app-nav',
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
@@ -31,5 +31,9 @@ export class NavComponent {
         console.log("Completed");
       }
     })
+  }
+
+  protected logout() {
+    this.isLogged = false;
   }
 }
