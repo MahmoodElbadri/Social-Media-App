@@ -107,6 +107,7 @@ lcov-report/
 
 # Ignore JetBrains system files
 .idea/
+.vs
 
 # Windows shortcuts
 *.lnk
