@@ -15,25 +15,23 @@ import {NgIf} from "@angular/common";
 })
 export class NavComponent {
   model: any = {}
-  private accountService = inject(AccountService);
-  isLogged = false;
+  accountService = inject(AccountService);
 
   protected login() {
     console.log(this.model);
     this.accountService.login(this.model).subscribe({
-      next:(response)=>{
-        this.isLogged = true;
+      next: (response) => {
       },
-      error:(error)=>{
+      error: (error) => {
         console.log('Can\'t login cause: ' + error);
       },
-      complete:()=>{
+      complete: () => {
         console.log("Completed");
       }
     })
   }
 
   protected logout() {
-    this.isLogged = false;
+    this.accountService.logout();
   }
 }

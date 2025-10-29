@@ -14,7 +14,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      @if (isLogged) {
+      @if (accountService.currentUser()) {
         <div class="navbar-nav">
           <a class="nav-link">Matches</a>
           <a class="nav-link">Lists</a>
@@ -44,7 +44,7 @@
         </div>
       }
 
-      @if (!isLogged) {
+      @if (!accountService.currentUser()) {
         <form #loginForm="ngForm" class="d-flex ms-auto" (ngSubmit)="login()">
           <input
             class="form-control me-2"
