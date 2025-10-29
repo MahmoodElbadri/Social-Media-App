@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div style="text-align: center">
+    @if (!registerMode) {
+      <h1>Find your match</h1>
+      <p class="lead">Come on in to view your matches... all you need to do signup and then you can start matching</p>
+      <div class="text-center btn-group col-6">
+        <button (click)="toggleRegister()" class="btn btn-primary col-6">Sign up</button>
+        <button class="btn btn-outline-info col-6">Learn more</button>
+      </div>
+
+    }
+    @else {
+      <div class="container">
+        <div class="justify-content-center">
+          <div class="row">
+            <div class="col-4">
+              <p>Register Goes Here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
