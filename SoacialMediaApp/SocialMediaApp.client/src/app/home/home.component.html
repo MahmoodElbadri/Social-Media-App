@@ -1,21 +1,21 @@
 <div class="container mt-4">
-  <div style="text-align: center">
+  <div class="text-center">
     @if (!registerMode) {
       <h1>Find your match</h1>
-      <p class="lead">Come on in to view your matches... all you need to do signup and then you can start matching</p>
-      <div class="text-center btn-group col-6">
-        <button (click)="toggleRegister()" class="btn btn-primary col-6">Sign up</button>
-        <button class="btn btn-outline-info col-6">Learn more</button>
+      <p class="lead">Come on in to view your matches... all you need to do is sign up and then you can start
+        matching</p>
+      <div class="d-flex justify-content-center gap-3">
+        <button (click)="toggleRegister()" class="btn btn-primary">Sign up</button>
+        <button class="btn btn-outline-info">Learn more</button>
       </div>
-
-    }
-    @else {
+    } @else {
       <div class="container">
-        <div class="justify-content-center">
-          <div class="row">
-            <div class="col-4">
-              <p>Register Goes Here</p>
-            </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <app-register
+              [userFromHomeComponent]="users"
+              (cancelRegister)="cancelRegisterMode($event)"
+            ></app-register>
           </div>
         </div>
       </div>

@@ -1,0 +1,59 @@
+<form
+  #registerForm="ngForm"
+  (ngSubmit)="register()"
+  class="p-4 shadow-lg rounded-4 bg-light"
+
+>
+  <h2 class="text-center text-primary mb-3">Signup</h2>
+  <hr>
+
+  <!-- Username -->
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      id="userName"
+      class="form-control"
+      name="userName"
+      placeholder="UserName"
+      [(ngModel)]="model.userName"
+      required
+    />
+    <label for="userName">UserName</label>
+  </div>
+  <!-- User Selection Dropdown -->
+  <div class="mb-3">
+    <label for="userSelect" class="form-label">Choose a user</label>
+    <select
+      id="userSelect"
+      class="form-select"
+      [(ngModel)]="model.selectedUser"
+      name="selectedUser"
+    >
+      <option value="" disabled selected>Select a user</option>
+      @for (user of userFromHomeComponent(); track $index) {
+        <option [value]="user.userName">{{ user.userName }}</option>
+      }
+    </select>
+  </div>
+
+
+  <!-- Password -->
+  <div class="form-floating mb-4">
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      name="password"
+      placeholder="Password"
+      [(ngModel)]="model.password"
+      required
+    />
+    <label for="password">Password</label>
+  </div>
+
+  <!-- Buttons -->
+  <div class="d-flex justify-content-center gap-3">
+    <button class="btn btn-primary px-4" type="submit">Register</button>
+    <button class="btn btn-outline-secondary px-4" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>
