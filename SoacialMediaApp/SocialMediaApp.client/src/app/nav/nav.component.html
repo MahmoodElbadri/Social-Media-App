@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" routerLinkActive="active"
        routerLink="/">Elbadri App</a>
@@ -35,7 +35,7 @@
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false">
-            Welcome {{ model.username }}
+            Welcome {{ this.accountService.currentUser()?.userName | titlecase }}
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end">
@@ -60,7 +60,7 @@
             type="password"
             [(ngModel)]="model.password"
             placeholder="Password">
-          <button class="btn btn-outline-success" type="submit">Login</button>
+          <button class="btn btn-info" type="submit">Login</button>
         </form>
       }
     </div>

@@ -51,7 +51,7 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         {
             if (user.PasswordHash[i] != computedHash[i])
             {
-                return BadRequest("Invalid username or password");
+                return BadRequest("Invalid username or password"); 
             }
         }
 
