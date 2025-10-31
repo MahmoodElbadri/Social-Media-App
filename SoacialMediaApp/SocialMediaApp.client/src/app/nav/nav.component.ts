@@ -2,6 +2,7 @@ import {Component, inject} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {AccountService} from "../_services/account.service";
 import {NgIf} from "@angular/common";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 
 @Component({
@@ -9,6 +10,8 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [
     FormsModule,
+    RouterLink,
+    RouterLinkActive,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
