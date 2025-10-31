@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Extensions;
 using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.Middleware;
 using SocialMediaApp.api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -35,7 +35,7 @@
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false">
-            Welcome {{ this.accountService.currentUser()?.userName | titlecase }}
+            Welcome {{ this.accountService.currentUser()?.userName | titlecase  }}
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end">
@@ -46,6 +46,8 @@
           </ul>
         </div>
       }
+      <a class="nav-link" routerLinkActive="active"
+         routerLink="/test-error">Test Error</a>
 
       @if (!accountService.currentUser()) {
         <form #loginForm="ngForm" class="d-flex ms-auto" (ngSubmit)="login()">
