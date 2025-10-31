@@ -42,7 +42,7 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         var user = await _db.Users.FirstOrDefaultAsync(tmp => tmp.UserName == loginDto.UserName);
         if (user == null)
         {
-            return Unauthorized();
+            return BadRequest("Invalid username or password");
         }
 
         using var hmac = new HMACSHA512(user.PasswordSalt);
@@ -51,7 +51,7 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         {
             if (user.PasswordHash[i] != computedHash[i])
             {
-                return Unauthorized();
+                return BadRequest("Invalid username or password");
             }
         }
 

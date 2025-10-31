@@ -3,6 +3,7 @@ import {HomeComponent} from "./home/home.component";
 import {MemberListComponent} from "./members/member-list/member-list.component";
 import {ListsComponent} from "./lists/lists.component";
 import {MessagesComponent} from "./messages/messages.component";
+import {authGuard} from "./_guards/auth.guard";
 
 export const routes: Routes = [
   {
@@ -13,7 +14,8 @@ export const routes: Routes = [
   {
     path: 'members',
     component: MemberListComponent,
-    title: 'Members'
+    title: 'Members',
+    canActivate: [authGuard]
   },
   {
     path: 'members/:id',
