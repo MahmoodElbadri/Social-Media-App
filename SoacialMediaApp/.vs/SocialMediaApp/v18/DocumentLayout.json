@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\extensions\\applicationserviceextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\extensions\\applicationserviceextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\irepository\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\irepository\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101114248_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SocialMediaApp.api\\Migrations\\20251101114248_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101113924_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SocialMediaApp.api\\Migrations\\20251101113924_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\data\\seed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|d:\\zpractice\\full stack\\soacialmediaappv_2\\soacialmediaapp\\socialmediaapp.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61F086F5-E0B9-426D-B21A-D4930AC07910}|SocialMediaApp.api\\SocialMediaApp.api.csproj|solutionrelative:socialmediaapp.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101104858_AddingPhotoEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SocialMediaApp.api\\Migrations\\20251101104858_AddingPhotoEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -54,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,20 +94,98 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Controllers\\UsersController.cs*",
+              "RelativeToolTip": "SocialMediaApp.api\\Controllers\\UsersController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:37:39.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\Services\\TokenService.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Services\\TokenService.cs",
+              "RelativeToolTip": "SocialMediaApp.api\\Services\\TokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:34:48.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationServiceExtension.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Extensions\\ApplicationServiceExtension.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\Extensions\\ApplicationServiceExtension.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Extensions\\ApplicationServiceExtension.cs*",
+              "RelativeToolTip": "SocialMediaApp.api\\Extensions\\ApplicationServiceExtension.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:32:04.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\Repository\\UserRepository.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Repository\\UserRepository.cs*",
+              "RelativeToolTip": "SocialMediaApp.api\\Repository\\UserRepository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:10:38.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\IRepository\\ITokenService.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\IRepository\\ITokenService.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\IRepository\\ITokenService.cs",
+              "RelativeToolTip": "SocialMediaApp.api\\IRepository\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:06:37.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\IRepository\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\IRepository\\IUserRepository.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\IRepository\\IUserRepository.cs",
+              "RelativeToolTip": "SocialMediaApp.api\\IRepository\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T12:03:29.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "20251101114248_InitialCreate.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101114248_InitialCreate.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Migrations\\20251101114248_InitialCreate.cs",
               "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101114248_InitialCreate.cs",
               "RelativeToolTip": "SocialMediaApp.api\\Migrations\\20251101114248_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T11:42:49.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "20251101113924_InitialCreate.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101113924_InitialCreate.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Migrations\\20251101113924_InitialCreate.cs",
@@ -96,20 +198,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Program.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Program.cs",
               "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Program.cs",
               "RelativeToolTip": "SocialMediaApp.api\\Program.cs",
-              "ViewState": "AgIAABYAAAAAMzMzMzMbwDoAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T11:26:30.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SocialMediaApp.api\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SocialMediaApp.api\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACQAAAAAMzMzMzMbwAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:04:59.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Seed.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Data\\Seed.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Data\\Seed.cs",
@@ -122,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "UserSeedData.json",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Data\\UserSeedData.json",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Data\\UserSeedData.json",
@@ -135,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Data\\AppDbContext.cs",
@@ -148,20 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "SocialMediaApp.api\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "SocialMediaApp.api\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAnwBYAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T11:04:59.425Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "20251101104858_AddingPhotoEntity.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Migrations\\20251101104858_AddingPhotoEntity.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Migrations\\20251101104858_AddingPhotoEntity.cs",
@@ -174,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "AppUser.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Entities\\AppUser.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Entities\\AppUser.cs",
@@ -187,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "Photo.cs",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\Entities\\Photo.cs",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\Entities\\Photo.cs",
@@ -204,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\Zpractice\\Full Stack\\SoacialMediaAppV_2\\SoacialMediaApp\\SocialMediaApp.api\\appsettings.Development.json",
               "RelativeDocumentMoniker": "SocialMediaApp.api\\appsettings.Development.json",

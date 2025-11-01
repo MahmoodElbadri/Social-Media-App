@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Extensions;
-using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.IRepository;
 using SocialMediaApp.api.Middleware;
 using SocialMediaApp.api.Services;
 

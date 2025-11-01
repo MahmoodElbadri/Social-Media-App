@@ -1,6 +1,6 @@
 using SocialMediaApp.api.Entities;
 
-namespace SocialMediaApp.api.Interfaces;
+namespace SocialMediaApp.api.IRepository;
 
 public interface ITokenService
 {

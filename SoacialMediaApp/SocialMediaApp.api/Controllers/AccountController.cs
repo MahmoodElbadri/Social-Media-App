@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
-using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.IRepository;
 
 namespace SocialMediaApp.api.Controllers;
 

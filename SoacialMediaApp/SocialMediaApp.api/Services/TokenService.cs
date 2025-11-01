@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Entities;
-using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.IRepository;
 
 namespace SocialMediaApp.api.Services;
 
