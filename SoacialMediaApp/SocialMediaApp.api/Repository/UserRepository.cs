@@ -1,12 +1,30 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.api.Data;
+using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
 using SocialMediaApp.api.IRepository;
 
 namespace SocialMediaApp.api.Repository
 {
-    public class UserRepository(AppDbContext db) : IUserRepository
+    public class UserRepository(AppDbContext db, IMapper mapper) : IUserRepository
     {
+        public async Task<MemberDto?> GetMemberAsync(string username)
+        {
+            return await db.Users
+                .Where(tmp=>tmp.UserName == username)
+                .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+        {
+            return await db.Users
+                .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
+                .ToListAsync();
+        }
+
         public async Task<AppUser?> GetUserByIdAsync(int id)
         {
             return await db.Users.FindAsync(id);

@@ -17,15 +17,15 @@ public class UsersController(IUserRepository _userRepo, IMapper _mapper) : Contr
     [HttpGet]
     public async Task<ActionResult<List<MemberDto>>> GetUsers()
     {
-        var users = await _userRepo.GetUsersAsync();
-        return Ok(_mapper.Map<List<MemberDto>>(users));
+        var users = await _userRepo.GetMembersAsync();
+        return Ok(users);
     }
 
     [HttpGet("{username}")]
     public async Task<ActionResult<AppUser>> GetUser(string username)
     {
-        var user = await _userRepo.GetUserByUsernameAsync(username);
-        if(user == null) return NotFound();
-        return Ok(_mapper.Map<MemberDto>(user));
+        var user = await _userRepo.GetMemberAsync(username);
+        if (user == null) return NotFound();
+        return Ok(user);
     }
 }
