@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.IRepository;
@@ -34,6 +35,8 @@ public static class ApplicationServiceExtension
                 };
             });
         services.AddScoped<IUserRepository, UserRepository>();
+
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         return services;
-    }
+    } 
 }
