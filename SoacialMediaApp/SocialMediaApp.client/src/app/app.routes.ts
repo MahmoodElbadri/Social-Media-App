@@ -7,6 +7,7 @@ import {authGuard} from "./_guards/auth.guard";
 import {TestErrorComponent} from "./_errors/test-error/test-error.component";
 import {NotFoundComponent} from "./_errors/not-found/not-found.component";
 import {ServerErrorComponent} from "./_errors/server-error/server-error.component";
+import {MemberDetailsComponent} from "./members/member-details/member-details.component";
 
 export const routes: Routes = [
   {
@@ -25,8 +26,8 @@ export const routes: Routes = [
         title: 'Members',
       },
       {
-        path: 'members/:id',
-        component: MemberListComponent,
+        path: 'members/:username',
+        component: MemberDetailsComponent,
         title: `Member Details`
       },
       {
