@@ -11,6 +11,7 @@ import {HttpClient} from "@angular/common/http";
 export class TestErrorComponent {
   baseUrl = 'http://localhost:5002/api';
   http = inject(HttpClient);
+  validationErrors: string[] = [];
 
   get400Error() {
     this.http.get(this.baseUrl + '/buggy/bad-request').subscribe({
@@ -34,9 +35,12 @@ export class TestErrorComponent {
   }
 
   get400ValidationError() {
-    this.http.post(this.baseUrl + '/auth/register', {}).subscribe({
+    this.http.post(this.baseUrl + '/account/register', {}).subscribe({
       next: () => console.log('success'),
-      error: (err) => console.log(err)
+      error: (err) => {
+        console.log(err);
+        this.validationErrors = err;
+      }
     })
   }
 }

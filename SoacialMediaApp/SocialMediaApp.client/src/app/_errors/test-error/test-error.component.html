@@ -3,4 +3,13 @@
   <button class="btn btn-outline-primary" (click)="get404Error()">Get 404 Error</button>
   <button class="btn btn-outline-primary" (click)="get500Error()">Get 500 Error</button>
   <button class="btn btn-outline-primary" (click)="get400ValidationError()">Get 400 Validation Error</button>
+  @if(validationErrors){
+    <div class="row mt-5">
+      <ul class="text-danger">
+        @for (error of validationErrors; track $index) {
+          <li>{{ error }}</li>
+        }
+      </ul>
+    </div>
+  }
 </div>
