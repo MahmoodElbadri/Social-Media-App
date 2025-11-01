@@ -20,21 +20,21 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         {
             return BadRequest("Email already exists");
         }
-
-        using var hmac = new HMACSHA512();
-        var user = new AppUser
-        {
-            UserName = regisDto.UserName,
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(regisDto.Password)),
-            PasswordSalt = hmac.Key
-        };
-        _db.Users.Add(user);
-        await _db.SaveChangesAsync();
-         return new UserDto
-        {
-            UserName =  user.UserName,
-            Token = _tokenService.CreateToken(user)
-        };
+        return Ok();
+        //using var hmac = new HMACSHA512();
+        //var user = new AppUser
+        //{
+        //    UserName = regisDto.UserName,
+        //    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(regisDto.Password)),
+        //    PasswordSalt = hmac.Key
+        //};
+        //_db.Users.Add(user);
+        //await _db.SaveChangesAsync();
+        // return new UserDto
+        //{
+        //    UserName =  user.UserName,
+        //    Token = _tokenService.CreateToken(user)
+        //};
     }
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
