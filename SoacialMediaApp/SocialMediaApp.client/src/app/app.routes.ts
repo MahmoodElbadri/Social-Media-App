@@ -1,4 +1,3 @@
-import {Routes} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {MemberListComponent} from "./members/member-list/member-list.component";
 import {ListsComponent} from "./lists/lists.component";
@@ -8,6 +7,9 @@ import {TestErrorComponent} from "./_errors/test-error/test-error.component";
 import {NotFoundComponent} from "./_errors/not-found/not-found.component";
 import {ServerErrorComponent} from "./_errors/server-error/server-error.component";
 import {MemberDetailsComponent} from "./members/member-details/member-details.component";
+import {MemberEditComponent} from "./members/member-edit/member-edit.component";
+import {preventUnsavedChangesGuard} from "./_guards/prevent-unsaved-changes.guard";
+import { Routes } from "@angular/router";
 
 export const routes: Routes = [
   {
@@ -28,7 +30,7 @@ export const routes: Routes = [
       {
         path: 'members/:username',
         component: MemberDetailsComponent,
-        title: `Member Details`
+        title: `Details`
       },
       {
         path: 'lists',
@@ -40,6 +42,12 @@ export const routes: Routes = [
         component: MessagesComponent,
         title: 'Messages'
       },
+      {
+        path: 'edit',
+        component: MemberEditComponent,
+        title: 'Edit Profile',
+        canDeactivate: [preventUnsavedChangesGuard]
+      }
     ]
   },
   {

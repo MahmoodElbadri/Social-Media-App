@@ -39,15 +39,15 @@
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/edit/">Edit Profile</a></li>
 <!--            Add a line between them-->
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
           </ul>
         </div>
       }
-      <a class="nav-link" routerLinkActive="active"
-         routerLink="/test-error">Test Error</a>
+<!--      <a class="nav-link" routerLinkActive="active"-->
+<!--         routerLink="/test-error">Test Error</a>-->
 
       @if (!accountService.currentUser()) {
         <form #loginForm="ngForm" class="d-flex ms-auto" (ngSubmit)="login()">
