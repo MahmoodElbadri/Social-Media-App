@@ -1,12 +1,20 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {Member} from "../../_models/member";
 import {MembersService} from "../../_services/members.service";
+import {DatePipe} from "@angular/common";
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import {GalleryItem, GalleryModule, ImageItem} from "ng-gallery";
 
 @Component({
   selector: 'app-member-details',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink,
+    DatePipe,
+    TabsModule,
+    GalleryModule,
+  ],
   templateUrl: './member-details.component.html',
   styleUrl: './member-details.component.css'
 })
@@ -15,6 +23,7 @@ export class MemberDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
   protected member?: Member;
   private memberService = inject(MembersService);
+  images :GalleryItem[] = [];
 
   ngOnInit(): void {
     this.loadUser();
@@ -27,6 +36,9 @@ export class MemberDetailsComponent implements OnInit {
       next: member => {
         this.member = member;
         console.log(this.member);
+        member.photos.map(p=>{
+          this.images.push(new ImageItem({src: p.url, thumb: p.url}))
+        })
       },
       error: err => {
         console.log(err);

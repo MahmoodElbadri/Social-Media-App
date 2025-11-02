@@ -1,5 +1,6 @@
-import {ApplicationConfig} from '@angular/core';
+import {ApplicationConfig, importProvidersFrom} from '@angular/core';
 import {provideRouter} from '@angular/router';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import {routes} from './app.routes';
 import {provideHttpClient, withInterceptors} from "@angular/common/http";
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       positionClass: "toast-bottom-right",
       }
-    )
+    ),
+    importProvidersFrom(TabsModule.forRoot())
   ]
 };
