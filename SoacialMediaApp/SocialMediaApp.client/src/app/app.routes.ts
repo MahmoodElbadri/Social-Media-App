@@ -8,8 +8,8 @@ import {NotFoundComponent} from "./_errors/not-found/not-found.component";
 import {ServerErrorComponent} from "./_errors/server-error/server-error.component";
 import {MemberDetailsComponent} from "./members/member-details/member-details.component";
 import {MemberEditComponent} from "./members/member-edit/member-edit.component";
-import {preventUnsavedChangesGuard} from "./_guards/prevent-unsaved-changes.guard";
 import { Routes } from "@angular/router";
+import {preventUnsavedChangesGuard} from "./_guards/prevent-unsaved-changes.guard";
 
 export const routes: Routes = [
   {
