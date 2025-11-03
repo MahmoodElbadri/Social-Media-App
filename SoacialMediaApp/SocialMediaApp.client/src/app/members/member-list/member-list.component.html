@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="mb-4">Member List</h1>
   <div class="row g-4">
-    @for (member of members; track member.id) {
+    @for (member of this.membersService.members(); track member.id) {
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <app-member-card [member]="member"></app-member-card>
       </div>

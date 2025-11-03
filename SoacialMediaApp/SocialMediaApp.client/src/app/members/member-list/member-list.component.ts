@@ -18,17 +18,14 @@ export class MemberListComponent implements OnInit {
 
   accountService = inject(AccountService);
   membersService = inject(MembersService);
-  members: Member[] = [];
 
   ngOnInit(): void {
-    this.loadMembers();
+    if (this.membersService.members().length === 0) {
+      this.loadMembers();
+    }
   }
 
   loadMembers(){
-    this.membersService.getMembers().subscribe({
-      next:(res)=>{
-        this.members = res;
-      }
-    })
+    this.membersService.getMembers();
   }
 }
