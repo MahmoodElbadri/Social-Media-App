@@ -51,7 +51,7 @@ public class UsersController(IUserRepository _userRepo, IMapper _mapper, IPhotoS
         var user = await _userRepo.GetUserByUsernameAsync(username);
         if (user == null) return BadRequest("User not found");
         var result = await _photoService.AddPhotoAsync(file);
-        if(result.Error != null)
+        if (result.Error != null)
         {
             return BadRequest(result.Error.Message);
         }
@@ -70,5 +70,24 @@ public class UsersController(IUserRepository _userRepo, IMapper _mapper, IPhotoS
             return CreatedAtAction(nameof(GetUser), new { username = user.UserName }, _mapper.Map<PhotoDto>(photo));
         }
         return BadRequest("Problem adding photo");
+    }
+
+    [HttpPut("set-main-photo/{photoId:int}")]
+    public async Task<ActionResult> SetMainPhoto(int photoId)
+    {
+        var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (username == null) return BadRequest("No username found in token");
+
+        var user = await _userRepo.GetUserByUsernameAsync(username);
+        if (user == null) return BadRequest("User not found");
+
+        var photo = user.Photos.FirstOrDefault(tmp => tmp.Id == photoId);
+        if (photo == null || photo.IsMain) return BadRequest("This is already your main photo");
+        var currentMain = user.Photos.FirstOrDefault(tmp => tmp.IsMain);
+        if (currentMain != null)
+            currentMain.IsMain = false;
+        photo.IsMain = true;
+        if (await _userRepo.SaveAllAsync()) return NoContent();
+        return BadRequest("Failed to set main photo");
     }
 }
