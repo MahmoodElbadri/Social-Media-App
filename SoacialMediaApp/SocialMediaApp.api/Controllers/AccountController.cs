@@ -39,7 +39,9 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await _db.Users.FirstOrDefaultAsync(tmp => tmp.UserName == loginDto.UserName);
+        var user = await _db.Users
+            .Include(tmp => tmp.Photos)
+                .FirstOrDefaultAsync(tmp => tmp.UserName == loginDto.UserName);
         if (user == null)
         {
             return BadRequest("Invalid username or password");
@@ -58,7 +60,8 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         return new UserDto
         {
             UserName = user.UserName,
-            Token = _tokenService.CreateToken(user)
+            Token = _tokenService.CreateToken(user),
+            PhotoUrl = user.Photos.FirstOrDefault(tmp=>tmp.IsMain)?.Url 
         };
     }
     private async Task<bool> UserExists(string username)

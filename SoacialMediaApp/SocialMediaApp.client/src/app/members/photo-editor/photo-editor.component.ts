@@ -4,6 +4,9 @@ import {DecimalPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {FileUploader, FileUploadModule} from "ng2-file-upload";
 import {AccountService} from "../../_services/account.service";
 import {environment} from "../../../environments/environment.development";
+import {MembersService} from "../../_services/members.service";
+import {ToastrService} from "ngx-toastr";
+import {Photo} from "../../_models/photo";
 
 @Component({
   selector: 'app-photo-editor',
@@ -27,6 +30,8 @@ export class PhotoEditorComponent implements OnInit {
   baseUrl = environment.apiUrl;
   member = input<Member>();
   memberChange = output<Member>();
+  memberSer = inject(MembersService);
+  toastrSer = inject(ToastrService);
 
   ngOnInit(): void {
     this.initializeUploader();
@@ -66,5 +71,27 @@ export class PhotoEditorComponent implements OnInit {
         this.memberChange.emit(updatedMember);
       }
     };
+  }
+
+  protected setMainPhoto(photo: Photo) {
+    this.memberSer.setMainPhoto(photo).subscribe({
+      next: _ => {
+        const user = this.accountService.currentUser();
+        if (user) {
+          user.photoUrl = photo.url;
+          this.accountService.setCurrentUser(user);
+        }
+        const updatedMember = {...this.member()} as Member;
+        updatedMember.photoUrl = photo.url;
+        updatedMember.photos.forEach(p => {
+          if (p.isMain) p.isMain = false;
+          if (p.id === photo.id) p.isMain = true;
+        })
+        this.memberChange.emit(updatedMember);
+      },
+      error: _ => {
+        this.toastrSer.error("Failed to set main photo");
+      }
+    })
   }
 }

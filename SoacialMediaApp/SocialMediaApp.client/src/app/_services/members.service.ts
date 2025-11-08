@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment.development";
 import {Member} from "../_models/member";
 import {AccountService} from "./account.service";
 import {of, tap} from "rxjs";
+import {Photo} from "../_models/photo";
 
 
 @Injectable({
@@ -34,9 +35,39 @@ export class MembersService {
   updateMember(member: Member) {
     return this.http.put(this.baseUrl + 'users', member).pipe(
       tap(() => {
-        this.members.update(mem=>mem.map(tmp=>tmp.username === member.username
-        ? member: tmp))
+        this.members.update(mem => mem.map(tmp => tmp.username === member.username
+          ? member : tmp))
       })
     )
+  }
+
+  setMainPhoto(photo: Photo) {
+    return this.http.put(this.baseUrl + 'users/' + `set-main-photo/${photo.id}`, {}).pipe(
+      tap(() => {
+        this.members.update(members => members.map(m => {
+          // Create a new member object to ensure proper reactivity
+          const updatedMember = { ...m };
+
+          // Update the photoUrl if this member contains the photo being set as main
+          if (updatedMember.photos.some(p => p.id === photo.id)) {
+            updatedMember.photoUrl = photo.url;
+          }
+
+          // Update the photos array to set the correct photo as main
+          updatedMember.photos = updatedMember.photos.map(p => {
+            if (p.id === photo.id) {
+              // Set this photo as main
+              return { ...p, isMain: true };
+            } else if (p.isMain) {
+              // Set any existing main photo as not main
+              return { ...p, isMain: false };
+            }
+            return p;
+          });
+
+          return updatedMember;
+        }));
+      })
+    );
   }
 }
