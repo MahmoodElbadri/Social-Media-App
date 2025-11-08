@@ -1,7 +1,7 @@
 import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../_models/user";
-import {map} from "rxjs";
+import {map, tap} from "rxjs";
 import {environment} from "../../environments/environment.development";
 
 @Injectable({
@@ -25,7 +25,8 @@ export class AccountService {
 
   register(model: any) {
     return this.http.post<User>(this.baseUrl + 'register', model).pipe(
-      map(user => {
+    map(user => {
+      console.log("set===============");
         if (user) {
           this.setCurrentUser(user);
         }

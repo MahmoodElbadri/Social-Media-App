@@ -1,75 +1,88 @@
-<form
-  [formGroup]="registerForm"
-  (ngSubmit)="register()"
-  class="p-4 shadow-lg rounded-4 bg-light"
-
->
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="p-4 shadow-lg rounded-4 bg-light">
   <h2 class="text-center text-primary mb-3">Signup</h2>
   <hr>
 
+  <div class="mb-3">
+    <label style="margin-right: 10px;">I'm a: </label>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" value="male" formControlName="gender"/>
+      Male
+    </label>
+    <label class="form-check-label ms-3">
+      <input type="radio" class="form-check-input" value="female" formControlName="gender"/>
+      Female
+    </label>
+  </div>
+
   <!-- Username -->
   <div class="form-floating mb-3">
-    <input
-      [class.is-invalid]="registerForm.get('username')?.errors && registerForm.get('username')?.touched"
-      autocomplete="off"
-      type="text"
-      id="userName"
-      class="form-control"
-      placeholder="UserName"
-      required
-      formControlName="username"
-    />
-    <label for="userName">UserName</label>
-    <div class="invalid-feedback text-start">
-      @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
-        <div>Username is required</div>
-        <div>Username must be at least 4 characters long</div>
-        <div>Username must be at most 20 characters long</div>
-      }
+    <app-text-input
+      [formControl]="$any(registerForm.controls['username'])"
+      [label]="'Username'"
+      [type]="'text'"
+      [minlength]="4"
+      [maxlength]="20"/>
+  </div>
+  <div class="form-floating mb-3">
+    <app-text-input
+      [formControl]="$any(registerForm.controls['knownAs'])"
+      [label]="'Known As'"
+      [type]="'text'"
+      [minlength]="4"
+      [maxlength]="20"/>
+  </div>
 
-    </div>
+  <div class="form-floating mb-3">
+    <app-date-picker
+      [formControl]="$any(registerForm.controls['dateOfBirth'])"
+      [label]="'Date of Birth'"
+      [maxDate]="maxDate"
+    />
+  </div>
+  <div class="form-floating mb-3">
+    <app-text-input
+      [formControl]="$any(registerForm.controls['city'])"
+      [label]="'City'"
+      [type]="'text'"
+      [minlength]="4"
+      [maxlength]="20"/>
+  </div>
+  <div class="form-floating mb-3">
+    <app-text-input
+      [formControl]="$any(registerForm.controls['country'])"
+      [label]="'Country'"
+      [type]="'text'"
+      [minlength]="4"
+      [maxlength]="20"/>
   </div>
 
   <!-- Password -->
-  <div class="form-floating mb-4">
-    <input
-      [class.is-invalid]="registerForm.get('password')?.errors"
-      type="password"
-      id="password"
-      class="form-control"
-      name="password"
-      formControlName="password"
-      required
-    />
-    <label for="password">Password</label>
-    <div class="invalid-feedback text-start">
-      @if (registerForm.get('password')?.valid && registerForm.get('password')?.touched) {
-        <div>Password is required</div>
-      }
-      @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
-        <div>Password must be at least 4 characters long</div>
-      }
-    </div>
+  <div class="form-floating mb-3">
+    <app-text-input
+      [formControl]="$any(registerForm.controls['password'])"
+      [label]="'Password'"
+      [type]="'password'"
+      [minlength]="4"
+      [maxlength]="20"/>
   </div>
 
   <!-- Confirm Password -->
-  <div class="form-floating mb-4">
-    <input
-      [class.is-invalid]="registerForm.get('confirmPassword')?.errors"
-      type="password"
-      placeholder="Enter Confirm Password"
-      class="form-control"
-      formControlName="confirmPassword">
-    <label for="confirmPassword">Confirm Password</label>
-    <div class="invalid-feedback text-start">
-      @if (registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched) {
-        <div>Confirm Password is required</div>
-      } @else if (registerForm.get('confirmPassword')?.hasError('notMatching') && registerForm.get('confirmPassword')?.touched) {
-        <div>Confirm Password must match Password</div>
-      }
-    </div>
+  <div class="form-floating mb-3">
+    <app-text-input
+      [formControl]="$any(registerForm.controls['confirmPassword'])"
+      [label]="'Confirm Password'"
+      [type]="'password'"
+      [minlength]="4"
+      [maxlength]="20"/>
   </div>
 
+  @if (validationErrors && validationErrors.length > 0) {
+    <div class="alert alert-danger" role="alert">
+      @for (error of validationErrors; track $index) {
+        <div>{{ error }}</div>
+      }
+    </div>
+  }
   <!-- Buttons -->
   <div class="d-flex justify-content-center gap-3">
     <button class="btn btn-primary px-4" type="submit">Register</button>
