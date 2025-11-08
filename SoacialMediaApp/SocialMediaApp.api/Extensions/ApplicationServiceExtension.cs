@@ -1,11 +1,12 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Data;
-using SocialMediaApp.api.Dtos;
-using SocialMediaApp.api.Entities;
-using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.Helpers;
+using SocialMediaApp.api.IRepository;
+using SocialMediaApp.api.Repository;
 using SocialMediaApp.api.Services;
 
 namespace SocialMediaApp.api.Extensions;
@@ -34,6 +35,11 @@ public static class ApplicationServiceExtension
                     ValidateAudience = false
                 };
             });
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+        services.AddScoped<IPhotoService, PhotoService>();
+
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         return services;
-    }
+    } 
 }

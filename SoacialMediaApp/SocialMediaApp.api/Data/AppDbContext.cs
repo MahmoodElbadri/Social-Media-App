@@ -10,23 +10,23 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<AppUser>()
-            .HasData(
-                new AppUser
-                {
-                    ID = 1, UserName = "bobby", PasswordHash = new byte[] { 0x00 },
-                    PasswordSalt = new byte[] { 0x00 }
-                },
-                new AppUser
-                {
-                    ID = 2, UserName = "tom", PasswordHash = new byte[] { 0x00 },
-                    PasswordSalt = new byte[] { 0x00 }
-                },
-                new AppUser
-                {
-                    ID = 3, UserName = "jane", PasswordHash = new byte[] { 0x00 },
-                    PasswordSalt = new byte[] { 0x00 }
-                }
-            );
+        //modelBuilder.Entity<AppUser>()
+        //    .HasData(
+        //        new AppUser
+        //        {
+        //            ID = 1, UserName = "bobby", PasswordHash = new byte[] { 0x00 },
+        //            PasswordSalt = new byte[] { 0x00 }
+        //        },
+        //        new AppUser
+        //        {
+        //            ID = 2, UserName = "tom", PasswordHash = new byte[] { 0x00 },
+        //            PasswordSalt = new byte[] { 0x00 }
+        //        },
+        //        new AppUser
+        //        {
+        //            ID = 3, UserName = "jane", PasswordHash = new byte[] { 0x00 },
+        //            PasswordSalt = new byte[] { 0x00 }
+        //        }
+        //    );
     }
 }

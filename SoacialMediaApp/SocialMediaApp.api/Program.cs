@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Extensions;
-using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.IRepository;
 using SocialMediaApp.api.Middleware;
 using SocialMediaApp.api.Services;
 
@@ -45,5 +45,18 @@ app.MapControllers();
 
 app.UseAuthorization();
 
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<AppDbContext>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedUser(context);
+}
+catch (Exception ex)
+{
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred during migration");
+}
 
 app.Run();

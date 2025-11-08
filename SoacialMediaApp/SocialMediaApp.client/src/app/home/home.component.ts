@@ -12,31 +12,11 @@ import {ToastrService} from "ngx-toastr";
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
   registerMode = false;
-  http = inject(HttpClient);
-  users: any;
-
-  ngOnInit(): void {
-    this.getUsers();
-  }
 
   toggleRegister() {
     this.registerMode = !this.registerMode;
-  }
-
-  getUsers(){
-    this.http.get("http://localhost:5002/api/Users").subscribe({
-      next: (res)=>{
-        this.users = res;
-      },
-      error: (err)=>{
-        console.log(err);
-      },
-      complete: ()=>{
-        console.log("Completed");
-      }
-    })
   }
 
   protected cancelRegisterMode($event: boolean) {

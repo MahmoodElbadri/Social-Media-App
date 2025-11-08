@@ -1,5 +1,5 @@
 <form
-  #registerForm="ngForm"
+  [formGroup]="registerForm"
   (ngSubmit)="register()"
   class="p-4 shadow-lg rounded-4 bg-light"
 
@@ -10,45 +10,64 @@
   <!-- Username -->
   <div class="form-floating mb-3">
     <input
+      [class.is-invalid]="registerForm.get('username')?.errors && registerForm.get('username')?.touched"
+      autocomplete="off"
       type="text"
       id="userName"
       class="form-control"
-      name="userName"
       placeholder="UserName"
-      [(ngModel)]="model.userName"
       required
+      formControlName="username"
     />
     <label for="userName">UserName</label>
-  </div>
-  <!-- User Selection Dropdown -->
-  <div class="mb-3">
-    <label for="userSelect" class="form-label">Choose a user</label>
-    <select
-      id="userSelect"
-      class="form-select"
-      [(ngModel)]="model.selectedUser"
-      name="selectedUser"
-    >
-      <option value="" disabled selected>Select a user</option>
-      @for (user of userFromHomeComponent(); track $index) {
-        <option [value]="user.userName">{{ user.userName }}</option>
+    <div class="invalid-feedback text-start">
+      @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
+        <div>Username is required</div>
+        <div>Username must be at least 4 characters long</div>
+        <div>Username must be at most 20 characters long</div>
       }
-    </select>
-  </div>
 
+    </div>
+  </div>
 
   <!-- Password -->
   <div class="form-floating mb-4">
     <input
+      [class.is-invalid]="registerForm.get('password')?.errors"
       type="password"
       id="password"
       class="form-control"
       name="password"
-      placeholder="Password"
-      [(ngModel)]="model.password"
+      formControlName="password"
       required
     />
     <label for="password">Password</label>
+    <div class="invalid-feedback text-start">
+      @if (registerForm.get('password')?.valid && registerForm.get('password')?.touched) {
+        <div>Password is required</div>
+      }
+      @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+        <div>Password must be at least 4 characters long</div>
+      }
+    </div>
+  </div>
+
+  <!-- Confirm Password -->
+  <div class="form-floating mb-4">
+    <input
+      [class.is-invalid]="registerForm.get('confirmPassword')?.errors"
+      type="password"
+      placeholder="Enter Confirm Password"
+      class="form-control"
+      formControlName="confirmPassword">
+    <label for="confirmPassword">Confirm Password</label>
+    <div class="invalid-feedback text-start">
+      @if (registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched) {
+        <div>Confirm Password is required</div>
+      } @else if (registerForm.get('confirmPassword')?.hasError('notMatching') && registerForm.get('confirmPassword')?.touched) {
+        <div>Confirm Password must match Password</div>
+      }
+    </div>
   </div>
 
   <!-- Buttons -->
@@ -57,3 +76,6 @@
     <button class="btn btn-outline-secondary px-4" type="button" (click)="cancel()">Cancel</button>
   </div>
 </form>
+
+<p>Form Value = {{ registerForm.value | json }}</p>
+<p>Form Status = {{ registerForm.status | json }}</p>

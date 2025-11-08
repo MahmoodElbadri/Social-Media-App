@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
-using SocialMediaApp.api.Interfaces;
+using SocialMediaApp.api.IRepository;
 
 namespace SocialMediaApp.api.Controllers;
 
@@ -20,26 +20,28 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         {
             return BadRequest("Email already exists");
         }
-
-        using var hmac = new HMACSHA512();
-        var user = new AppUser
-        {
-            UserName = regisDto.UserName,
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(regisDto.Password)),
-            PasswordSalt = hmac.Key
-        };
-        _db.Users.Add(user);
-        await _db.SaveChangesAsync();
-         return new UserDto
-        {
-            UserName =  user.UserName,
-            Token = _tokenService.CreateToken(user)
-        };
+        return Ok();
+        //using var hmac = new HMACSHA512();
+        //var user = new AppUser
+        //{
+        //    UserName = regisDto.UserName,
+        //    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(regisDto.Password)),
+        //    PasswordSalt = hmac.Key
+        //};
+        //_db.Users.Add(user);
+        //await _db.SaveChangesAsync();
+        // return new UserDto
+        //{
+        //    UserName =  user.UserName,
+        //    Token = _tokenService.CreateToken(user)
+        //};
     }
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await _db.Users.FirstOrDefaultAsync(tmp => tmp.UserName == loginDto.UserName);
+        var user = await _db.Users
+            .Include(tmp => tmp.Photos)
+                .FirstOrDefaultAsync(tmp => tmp.UserName == loginDto.UserName);
         if (user == null)
         {
             return BadRequest("Invalid username or password");
@@ -58,7 +60,8 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService) : 
         return new UserDto
         {
             UserName = user.UserName,
-            Token = _tokenService.CreateToken(user)
+            Token = _tokenService.CreateToken(user),
+            PhotoUrl = user.Photos.FirstOrDefault(tmp=>tmp.IsMain)?.Url 
         };
     }
     private async Task<bool> UserExists(string username)
