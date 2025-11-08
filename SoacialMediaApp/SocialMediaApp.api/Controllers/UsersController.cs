@@ -90,4 +90,41 @@ public class UsersController(IUserRepository _userRepo, IMapper _mapper, IPhotoS
         if (await _userRepo.SaveAllAsync()) return NoContent();
         return BadRequest("Failed to set main photo");
     }
+
+    [HttpDelete("delete-photo/{photoId:int}")]
+    public async Task<ActionResult> DeletePhoto(int photoId)
+    {
+        var userName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userName == null)
+        {
+            return BadRequest("No username found in token");
+        }
+
+        var user = _userRepo.GetUserByUsernameAsync(userName).Result;
+        if (user == null)
+        {
+            return BadRequest("User not found");
+        }
+
+        var photo = user.Photos.FirstOrDefault(tmp => tmp.Id == photoId);
+        if (photo.IsMain || photo == null)
+        {
+            return BadRequest("You cannot delete your main photo");
+        }
+
+        if (photo.PublicId != null)
+        {
+            var result = await _photoService.DeletePhotoAsync(photo.PublicId);
+            if (result.Error != null)
+            {
+                return BadRequest(result.Error.Message);
+            }
+        }
+        user.Photos.Remove(photo);
+        if (await _userRepo.SaveAllAsync())
+        {
+            return Ok();
+        }
+        return BadRequest("Failed to delete photo");
+    }
 }

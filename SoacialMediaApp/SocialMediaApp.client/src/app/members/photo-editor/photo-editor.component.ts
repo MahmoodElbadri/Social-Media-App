@@ -94,4 +94,17 @@ export class PhotoEditorComponent implements OnInit {
       }
     })
   }
+
+  protected deletePhoto(photo: Photo){
+    this.memberSer.deletePhoto(photo).subscribe({
+      next: _=>{
+        const updatedMember = {...this.member()} as Member;
+        updatedMember.photos = updatedMember.photos?.filter(p => p.id !== photo.id);
+        this.memberChange.emit(updatedMember);
+      },
+      error: _=>{
+        this.toastrSer.error("Failed to delete photo");
+      }
+    })
+  }
 }
