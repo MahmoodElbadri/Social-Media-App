@@ -1,0 +1,16 @@
+<div class="form-floating mb-3">
+  <input
+    type="text"
+    class="form-control"
+    bsDatepicker
+    [bsConfig]="bsConfig"
+    [container]="'body'"
+    [formControl]="control"
+    [placeholder]="label()" />
+  <label>{{label()}}</label>
+  <div class="invalid-feedback text-start">
+    @if (control.hasError('required')) {
+      <div>{{label()}} is required</div>
+    }
+  </div>
+</div>

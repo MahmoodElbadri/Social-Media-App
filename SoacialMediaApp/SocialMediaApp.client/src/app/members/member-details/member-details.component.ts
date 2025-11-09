@@ -35,14 +35,10 @@ export class MemberDetailsComponent implements OnInit {
     this.memberService.getMember(username).subscribe({
       next: member => {
         this.member = member;
-        console.log(this.member);
         member.photos.map(p=>{
           this.images.push(new ImageItem({src: p.url, thumb: p.url}))
         })
       },
-      error: err => {
-        console.log(err);
-      }
     })
   }
 }

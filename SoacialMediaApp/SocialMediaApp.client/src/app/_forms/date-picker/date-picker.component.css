@@ -1,0 +1,23 @@
+.bs-datepicker-container,
+.bs-datepicker,
+.bs-datepicker-body,
+.theme-blue .bs-datepicker {
+  background: #fff !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+  position: relative !important;
+}
+
+.bs-datepicker {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 10px !important;
+}
+
+.bs-datepicker .bs-datepicker-head {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.bs-datepicker .bs-datepicker-body table td span {
+  color: #333 !important;
+}

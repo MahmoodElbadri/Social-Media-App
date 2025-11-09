@@ -25,15 +25,12 @@ export class NavComponent {
   private toastr = inject(ToastrService);
 
   protected login() {
-    console.log(this.model);
     this.accountService.login(this.model).subscribe({
       next: (response) => {
         void this.router.navigateByUrl("/members");
       },
       error: (err) => {
-        console.log('Can\'t login cause: ' + err);
         // this.toastr.error(err.error);
-        console.log('Error object:', err);
         this.toastr.error('Check console for details');
       },
       complete: () => {

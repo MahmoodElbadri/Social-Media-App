@@ -41,15 +41,11 @@ export class MemberEditComponent implements OnInit {
   loadData() {
     const user = this.accountService.currentUser();
     if (!user) {
-      console.log("no user");
       return;
     }
-    console.log("the if condition has been done" + user);
     this.memberService.getMember(user.userName).subscribe({
       next: member => {
-        console.log("request succeeded");
         this.member = member;
-        console.log(this.member);
       }
     })
   }
