@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
+using SocialMediaApp.api.Extensions;
+using SocialMediaApp.api.Helpers;
 using SocialMediaApp.api.IRepository;
 using System.Security.Claims;
 
@@ -14,9 +16,10 @@ namespace SocialMediaApp.api.Controllers;
 public class UsersController(IUserRepository _userRepo, IMapper _mapper, IPhotoService _photoService) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<List<MemberDto>>> GetUsers()
+    public async Task<ActionResult<List<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
     {
-        var users = await _userRepo.GetMembersAsync();
+        var users = await _userRepo.GetMembersAsync(userParams);
+        Response.AddPaginationHeader(users);
         return Ok(users);
     }
 

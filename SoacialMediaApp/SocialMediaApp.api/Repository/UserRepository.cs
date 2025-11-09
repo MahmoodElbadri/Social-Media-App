@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
+using SocialMediaApp.api.Helpers;
 using SocialMediaApp.api.IRepository;
 
 namespace SocialMediaApp.api.Repository
@@ -13,16 +14,15 @@ namespace SocialMediaApp.api.Repository
         public async Task<MemberDto?> GetMemberAsync(string username)
         {
             return await db.Users
-                .Where(tmp=>tmp.UserName == username)
+                .Where(tmp => tmp.UserName == username)
                 .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
                 .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+        public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
-            return await db.Users
-                .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
-                .ToListAsync();
+            var query =  db.Users.ProjectTo<MemberDto>(mapper.ConfigurationProvider);
+            return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<AppUser?> GetUserByIdAsync(int id)

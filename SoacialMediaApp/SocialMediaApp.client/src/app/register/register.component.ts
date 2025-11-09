@@ -80,23 +80,12 @@ export class RegisterComponent implements OnInit {
         this.cancel();
       },
       error: (error) => {
-        console.error('Raw Error:', error); // Keep this for debugging
-
-        // CHECK 1: This is the one that matches your JSON
         if (error.error && error.error.errors) {
-          this.validationErrors = Object.values(error.error.errors).flat().map(e => String(e));
-        }
-        // CHECK 2: Simple array of errors
-        else if (Array.isArray(error.error)) {
-          this.validationErrors = error.error;
-        }
-        // CHECK 3: Simple string error
-        else if (typeof error.error === 'string') {
+          this.validationErrors = Object.values(error.error.errors).flat() as string[];
+        } else if (typeof error.error === 'string') {
           this.validationErrors = [error.error];
-        }
-        // FALLBACK
-        else {
-          this.validationErrors = ['An unexpected error occurred.'];
+        } else {
+          this.validationErrors = ['An unexpected error occurred'];
         }
       },
       complete: () => {

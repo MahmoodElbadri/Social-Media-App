@@ -39,18 +39,20 @@
       [maxDate]="maxDate"
     />
   </div>
-  <div class="form-floating mb-3">
-    <app-text-input
-      [formControl]="$any(registerForm.controls['city'])"
-      [label]="'City'"
-      [type]="'text'"
-      [minlength]="4"
-      [maxlength]="20"/>
-  </div>
+
   <div class="form-floating mb-3">
     <app-text-input
       [formControl]="$any(registerForm.controls['country'])"
       [label]="'Country'"
+      [type]="'text'"
+      [minlength]="1"
+      [maxlength]="20"/>
+  </div>
+
+  <div class="form-floating mb-3">
+    <app-text-input
+      [formControl]="$any(registerForm.controls['city'])"
+      [label]="'City'"
       [type]="'text'"
       [minlength]="4"
       [maxlength]="20"/>
@@ -76,19 +78,19 @@
       [maxlength]="20"/>
   </div>
 
-  @if (validationErrors && validationErrors.length > 0) {
-    <div class="alert alert-danger" role="alert">
-      @for (error of validationErrors; track $index) {
-        <div>{{ error }}</div>
-      }
-    </div>
-  }
+<!--  @if (validationErrors && validationErrors.length > 0) {-->
+<!--    <div class="alert alert-danger" role="alert">-->
+<!--      @for (error of validationErrors; track $index) {-->
+<!--        <div>{{ error }}</div>-->
+<!--      }-->
+<!--    </div>-->
+<!--  }-->
   <!-- Buttons -->
   <div class="d-flex justify-content-center gap-3">
-    <button class="btn btn-primary px-4" type="submit">Register</button>
+    <button [disabled]="registerForm.invalid" class="btn btn-primary px-4" type="submit">Register</button>
     <button class="btn btn-outline-secondary px-4" type="button" (click)="cancel()">Cancel</button>
   </div>
 </form>
 
-<p>Form Value = {{ registerForm.value | json }}</p>
-<p>Form Status = {{ registerForm.status | json }}</p>
+<!--<p>Form Value = {{ registerForm.value | json }}</p>-->
+<!--<p>Form Status = {{ registerForm.status | json }}</p>-->
