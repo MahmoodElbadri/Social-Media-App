@@ -21,8 +21,27 @@ namespace SocialMediaApp.api.Repository
 
         public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
-            var query =  db.Users.ProjectTo<MemberDto>(mapper.ConfigurationProvider);
-            return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
+            var query =  db.Users.AsQueryable();
+            query = query.Where(tmp => tmp.UserName != userParams.CurrentUsername);
+            if (userParams.Gender != null)
+            {
+                query = query.Where(tmp=>tmp.Gender == userParams.Gender);
+            }
+
+            var minAge = DateOnly.FromDateTime(DateTime.Now.AddYears(-userParams.MaxAge - 1));
+            var maxAge = DateOnly.FromDateTime(DateTime.Now.AddYears(-userParams.MinAge));
+
+            query = query.Where(tmp=>tmp.DateOfBirth >=  minAge && tmp.DateOfBirth <= maxAge);
+
+            query = userParams.OrderBy switch
+            {
+                "created" => query.OrderBy(tmp => tmp.Created),
+                _ => query.OrderBy(tmp => tmp.LastActive),
+            };
+
+            return await PagedList<MemberDto>.CreateAsync(query.ProjectTo<MemberDto>(mapper.ConfigurationProvider),
+                userParams.PageNumber, 
+                userParams.PageSize);
         }
 
         public async Task<AppUser?> GetUserByIdAsync(int id)

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SocialMediaApp.api.Data;
+using SocialMediaApp.api.Filters;
 using SocialMediaApp.api.Helpers;
 using SocialMediaApp.api.IRepository;
 using SocialMediaApp.api.Repository;
@@ -38,6 +39,7 @@ public static class ApplicationServiceExtension
         services.AddScoped<IUserRepository, UserRepository>();
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoService, PhotoService>();
+        services.AddScoped<LogUserActivityFilter>();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         return services;

@@ -34,7 +34,7 @@
               width="32"
               height="32"
               alt="user's main photo" />
-            Welcome {{this.accountService.currentUser()?.userName | titlecase}}
+            Welcome {{this.accountService.currentUser()?.knownAs}}
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end">

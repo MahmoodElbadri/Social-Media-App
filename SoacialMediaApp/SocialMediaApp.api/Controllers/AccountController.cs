@@ -6,12 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
+using SocialMediaApp.api.Filters;
 using SocialMediaApp.api.IRepository;
 
 namespace SocialMediaApp.api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ServiceFilter(typeof(LogUserActivityFilter))]
 public class AccountController(AppDbContext _db, ITokenService _tokenService,
     IMapper _mapper) : ControllerBase
 {
@@ -33,7 +35,8 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService,
         {
             UserName = user.UserName,
             Token = _tokenService.CreateToken(user),
-            KnownAs = user.KnownAs
+            KnownAs = user.KnownAs,
+            Gender = user.Gender, 
         };
     }
     [HttpPost("login")]
@@ -62,6 +65,7 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService,
             UserName = user.UserName,
             Token = _tokenService.CreateToken(user),
             KnownAs = user.KnownAs,
+            Gender = user.Gender,
             PhotoUrl = user.Photos.FirstOrDefault(tmp=>tmp.IsMain)?.Url 
         };
     }
