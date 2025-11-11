@@ -25,6 +25,7 @@ export class MembersService {
         params = params.append('pageNumber', userParams.pageNumber);
         params = params.append('minAge', userParams.minAge);
         params = params.append('maxAge', userParams.maxAge);
+        params = params.append('orderBy', userParams.orderBy);
         return this.http.get<Member[]>(this.baseUrl + 'users', {observe: 'response', params}).subscribe({
       next: (response) => {
          this.paginatedResult.set({

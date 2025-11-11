@@ -33,6 +33,12 @@ namespace SocialMediaApp.api.Repository
 
             query = query.Where(tmp=>tmp.DateOfBirth >=  minAge && tmp.DateOfBirth <= maxAge);
 
+            query = userParams.OrderBy switch
+            {
+                "created" => query.OrderBy(tmp => tmp.Created),
+                _ => query.OrderBy(tmp => tmp.LastActive),
+            };
+
             return await PagedList<MemberDto>.CreateAsync(query.ProjectTo<MemberDto>(mapper.ConfigurationProvider),
                 userParams.PageNumber, 
                 userParams.PageSize);

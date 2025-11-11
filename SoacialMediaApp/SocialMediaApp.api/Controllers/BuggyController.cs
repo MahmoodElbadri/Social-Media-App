@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialMediaApp.api.Data;
 using SocialMediaApp.api.Entities;
+using SocialMediaApp.api.Filters;
 
 namespace SocialMediaApp.api.Controllers;
 
 [ApiController]
+[ServiceFilter(typeof(LogUserActivityFilter))]
 [Route("api/[controller]")]
 public class BuggyController(AppDbContext _db) : ControllerBase
 {

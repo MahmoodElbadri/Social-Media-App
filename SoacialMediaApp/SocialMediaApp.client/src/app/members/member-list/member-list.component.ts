@@ -6,6 +6,7 @@ import { MemberCardComponent } from "../member-card/member-card.component";
 import { PageChangedEvent, PaginationModule } from "ngx-bootstrap/pagination";
 import {UserParams} from "../../_models/UserParams";
 import {FormsModule} from "@angular/forms";
+import {ButtonsModule} from "ngx-bootstrap/buttons";
 
 @Component({
   selector: 'app-member-list',
@@ -13,7 +14,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     MemberCardComponent,
     PaginationModule,
-    FormsModule
+    FormsModule,
+    ButtonsModule
   ],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css'

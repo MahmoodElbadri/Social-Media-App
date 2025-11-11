@@ -58,6 +58,24 @@
           <i class="bi bi-arrow-clockwise me-1"></i>Reset
         </button>
       </div>
+      <div class="col">
+        <div class="btn-group float-end" role="group">
+          <button type="button"
+                  class="btn"
+                  [class.btn-primary]="userParams.orderBy === 'lastActive'"
+                  [class.btn-outline-primary]="userParams.orderBy !== 'lastActive'"
+                  (click)="userParams.orderBy = 'lastActive'; loadMembers()">
+            Last Active
+          </button>
+          <button type="button"
+                  class="btn"
+                  [class.btn-primary]="userParams.orderBy === 'created'"
+                  [class.btn-outline-primary]="userParams.orderBy !== 'created'"
+                  (click)="userParams.orderBy = 'created'; loadMembers()">
+            Newest Members
+          </button>
+        </div>
+      </div>
     </form>
   </div>
   <div class="row g-4">

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SocialMediaApp.api.Dtos;
 using SocialMediaApp.api.Entities;
 using SocialMediaApp.api.Extensions;
+using SocialMediaApp.api.Filters;
 using SocialMediaApp.api.Helpers;
 using SocialMediaApp.api.IRepository;
 using System.Security.Claims;
@@ -11,6 +12,7 @@ using System.Security.Claims;
 namespace SocialMediaApp.api.Controllers;
 
 [ApiController]
+[ServiceFilter(typeof(LogUserActivityFilter))]
 [Authorize]
 [Route("api/[controller]")]
 public class UsersController(IUserRepository _userRepo, IMapper _mapper, IPhotoService _photoService) : ControllerBase
