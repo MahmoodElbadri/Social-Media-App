@@ -33,7 +33,8 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService,
         {
             UserName = user.UserName,
             Token = _tokenService.CreateToken(user),
-            KnownAs = user.KnownAs
+            KnownAs = user.KnownAs,
+            Gender = user.Gender, 
         };
     }
     [HttpPost("login")]
@@ -62,6 +63,7 @@ public class AccountController(AppDbContext _db, ITokenService _tokenService,
             UserName = user.UserName,
             Token = _tokenService.CreateToken(user),
             KnownAs = user.KnownAs,
+            Gender = user.Gender,
             PhotoUrl = user.Photos.FirstOrDefault(tmp=>tmp.IsMain)?.Url 
         };
     }

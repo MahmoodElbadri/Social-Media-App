@@ -1,10 +1,86 @@
 <div class="container">
   <h1 class="mb-4">Member List</h1>
+  <div class="text-center mt-3">
+    <h2>Your Matches {{membersService.paginatedResult()?.pagination?.totalItems}}</h2>
+  </div>
+  <div class="mt-3 container">
+    <!-- Filters Bar -->
+    <form  #ngForm="ngForm"
+           class="row g-3 align-items-center p-3 bg-light rounded-3 shadow-sm mb-4"
+           (ngSubmit)="loadMembers()">
+
+      <!-- Age From -->
+      <div class="col-auto">
+        <label class="form-label mb-1 fw-semibold text-muted">Age from</label>
+        <input type="number"
+               class="form-control form-control-sm"
+               name="minAge"
+               [(ngModel)]="userParams.minAge"
+               min="18"
+               max="99">
+      </div>
+
+      <!-- Age To -->
+      <div class="col-auto">
+        <label class="form-label mb-1 fw-semibold text-muted">to</label>
+        <input type="number"
+               class="form-control form-control-sm"
+               name="maxAge"
+               [(ngModel)]="userParams.maxAge"
+               min="18"
+               max="99">
+      </div>
+
+      <!-- Gender -->
+      <div class="col-auto">
+        <label class="form-label mb-1 fw-semibold text-muted">Gender</label>
+        <select class="form-select form-select-sm"
+                name="gender"
+                [(ngModel)]="userParams.gender">
+          @for (g of genderList; track g.value) {
+            <option [value]="g.value">{{ g.display }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Spacer (pushes buttons right) -->
+      <div class="col"></div>
+
+      <!-- Buttons -->
+      <div class="col-auto d-flex gap-2">
+        <button type="submit"
+                class="btn btn-primary btn-sm px-3">
+          <i class="bi bi-funnel me-1"></i>Apply
+        </button>
+        <button type="button"
+                class="btn btn-outline-secondary btn-sm px-3"
+                (click)="resetFilters()">
+          <i class="bi bi-arrow-clockwise me-1"></i>Reset
+        </button>
+      </div>
+    </form>
+  </div>
   <div class="row g-4">
-    @for (member of this.membersService.members(); track member.id) {
+    @for (member of this.membersService.paginatedResult()?.items; track member.id) {
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <app-member-card [member]="member"></app-member-card>
       </div>
     }
   </div>
 </div>
+@if(membersService.paginatedResult()?.pagination){
+<div class="d-flex justify-content-center">
+  <pagination
+              [boundaryLinks]="true"
+              [totalItems]="membersService.paginatedResult()?.pagination!.totalItems"
+              [itemsPerPage]="membersService.paginatedResult()?.pagination!.itemsPerPage"
+              (pageChanged)="pageChanged($event)"
+              previousText="&lsaquo;"
+              nextText="&rsaquo;"
+              firstText="&laquo;"
+              lastText="&raquo;">
+
+  </pagination>
+</div>
+}
+

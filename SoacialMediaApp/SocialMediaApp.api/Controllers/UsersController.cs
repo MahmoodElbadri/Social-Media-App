@@ -18,6 +18,8 @@ public class UsersController(IUserRepository _userRepo, IMapper _mapper, IPhotoS
     [HttpGet]
     public async Task<ActionResult<List<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
     {
+        var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        userParams.CurrentUsername = username;
         var users = await _userRepo.GetMembersAsync(userParams);
         Response.AddPaginationHeader(users);
         return Ok(users);
