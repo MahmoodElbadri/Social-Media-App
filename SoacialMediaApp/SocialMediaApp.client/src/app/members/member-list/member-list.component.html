@@ -15,7 +15,7 @@
         <input type="number"
                class="form-control form-control-sm"
                name="minAge"
-               [(ngModel)]="userParams.minAge"
+               [(ngModel)]="membersService.userParams().minAge"
                min="18"
                max="99">
       </div>
@@ -26,7 +26,7 @@
         <input type="number"
                class="form-control form-control-sm"
                name="maxAge"
-               [(ngModel)]="userParams.maxAge"
+               [(ngModel)]="membersService.userParams().maxAge"
                min="18"
                max="99">
       </div>
@@ -36,7 +36,7 @@
         <label class="form-label mb-1 fw-semibold text-muted">Gender</label>
         <select class="form-select form-select-sm"
                 name="gender"
-                [(ngModel)]="userParams.gender">
+                [(ngModel)]="membersService.userParams().gender">
           @for (g of genderList; track g.value) {
             <option [value]="g.value">{{ g.display }}</option>
           }
@@ -93,6 +93,7 @@
               [totalItems]="membersService.paginatedResult()?.pagination!.totalItems"
               [itemsPerPage]="membersService.paginatedResult()?.pagination!.itemsPerPage"
               (pageChanged)="pageChanged($event)"
+              [(ngModel)]="membersService.paginatedResult()?.pagination!.currentPage"
               previousText="&lsaquo;"
               nextText="&rsaquo;"
               firstText="&laquo;"
