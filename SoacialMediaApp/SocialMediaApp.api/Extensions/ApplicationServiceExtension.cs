@@ -40,6 +40,7 @@ public static class ApplicationServiceExtension
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<LogUserActivityFilter>();
+        services.AddScoped<ILikeRepository, LikeRepository>();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         return services;
