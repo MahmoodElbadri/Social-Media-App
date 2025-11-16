@@ -19,8 +19,8 @@
         <div class="card-body">
           <p><strong>Location:</strong> {{ member.city }}, {{ member.country }}</p>
           <p><strong>Age:</strong> {{ member.age }}</p>
-          <p><strong>Last Active:</strong> {{ member.lastActive }}</p>
-          <p><strong>Member since:</strong> {{ member.created }}</p>
+          <p><strong>Last Active:</strong> {{ member.lastActive | timeago}}</p>
+          <p><strong>Member since:</strong> {{ member.created |date: 'dd MMM yyyy'}}</p>
         </div>
         <div class="card-footer">
           <button [disabled]="!profileForm.dirty" type="submit" form="formEdit" class="btn btn-success w-100">Save Changes</button>

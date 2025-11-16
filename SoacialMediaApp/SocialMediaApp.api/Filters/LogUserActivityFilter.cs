@@ -21,7 +21,7 @@ public class LogUserActivityFilter : IAsyncActionFilter
         {
             return;
         }
-        user.LastActive = DateTime.UtcNow;
+        user.LastActive = DateTime.Now;
         await repo.SaveAllAsync();
     }
 }
